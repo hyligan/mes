@@ -48,4 +48,9 @@ public class WorkersController {
     return "redirect:/worker"; // Redirect back to the worker list page
   }
   
+  @GetMapping("/delete/{id}")
+  public String delete(@PathVariable("id") Long id){
+    workerService.delete(id);
+    return "redirect:/worker";
+  }
 }

@@ -6,8 +6,8 @@
 <body>
 <h2>Create New Worker</h2>
 <form th:action="@{/worker/create}" method="post" th:object="${newWorker}">
-    <label>Name: <input type="text" th:field="*{name}" /></label><br>
-    <label>Position: <input type="text" th:field="*{position}" /></label><br>
+    <label>Name: <input type="text" th:field="*{name}"/></label><br>
+    <label>Position: <input type="text" th:field="*{position}"/></label><br>
     <button type="submit">Create Worker</button>
 </form>
 <h1>Worker List</h1>
@@ -17,7 +17,8 @@
         <th>ID</th>
         <th>Name</th>
         <th>Position</th>
-        <th>Action</th>
+        <th>Edit</th>
+        <th>Delete</th>
     </tr>
     </thead>
     <tbody>
@@ -27,6 +28,7 @@
         <td th:text="${worker.name}"></td>
         <td th:text="${worker.position}"></td>
         <td><a th:href="@{'/worker/edit/' + ${worker.id}}">Edit</a></td>
+        <td><a th:href="@{'/worker/delete/' + ${worker.id}}">delete</a></td>
     </tr>
     </tbody>
 </table>

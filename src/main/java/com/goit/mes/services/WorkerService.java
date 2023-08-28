@@ -12,4 +12,7 @@ public interface WorkerService {
   void createWorker(Worker newWorker);
 
   void update(Worker newWorker, Long id);
+
+  void delete(Long id);
+  
 }

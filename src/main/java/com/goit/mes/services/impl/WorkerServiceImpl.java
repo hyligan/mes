@@ -35,4 +35,9 @@ public class WorkerServiceImpl implements WorkerService {
     newWorker.setId(id);
     repo.save(newWorker);
   }
+
+  @Override
+  public void delete(Long id) {
+    repo.deleteById(id);
+  }
 }
