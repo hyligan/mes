@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Worker List</title>
+</head>
+<body>
+<h2>Create New Worker</h2>
+<form th:action="@{/worker/create}" method="post" th:object="${newWorker}">
+    <label>Name: <input type="text" th:field="*{name}" /></label><br>
+    <label>Position: <input type="text" th:field="*{position}" /></label><br>
+    <button type="submit">Create Worker</button>
+</form>
+<h1>Worker List</h1>
+<table>
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Position</th>
+        <th>Action</th>
+    </tr>
+    </thead>
+    <tbody>
+    <!-- Loop through the list of workers and display them -->
+    <tr th:each="worker : ${workerList}">
+        <td th:text="${worker.id}"></td>
+        <td th:text="${worker.name}"></td>
+        <td th:text="${worker.position}"></td>
+        <td><a th:href="@{'/worker/edit/' + ${worker.id}}">Edit</a></td>
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>
